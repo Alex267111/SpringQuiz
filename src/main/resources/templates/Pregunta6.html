@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+ 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+<title>¿Qué tipo de empanada eres?</title>
+</head>
+<body>
+
+	<div class="jumbotron">
+		
+		<div class="d-flex justify-content-center">
+            <h1>¿En cu&aacute;l de los siguientes paises te gustar&iacute;a vivir?</h1>
+        </div>
+	
+		<div class="d-flex justify-content-center">
+        	<img th:src="@{images/mapa.jpg}" class="img-fluid" alt="Mapa Mundo" width= 700px; height=500px;>
+        </div>
+
+		<br>
+		<div class="form-group">
+				<form th:action="@{/respuesta6}" method="post">
+					<div class="d-flex justify-content-center">
+						<fieldset class="form-group form-group-lg">
+							<div class="custom-control custom-radio mx-2">
+								<input type="radio" id="radioMontaña" name="puntuacion" class="custom-control-input" checked="" value="1">
+								<label class="custom-control-label" for="radioMontaña"><h4>Rusia</h4>
+								</label>
+							</div>
+							<div class="custom-control custom-radio mx-2">
+								<input type="radio" id="radioPlaya" name="puntuacion" class="custom-control-input" value="2">
+								<label class="custom-control-label" for="radioPlaya"><h4>Italia</h4>
+								</label>
+							</div>
+						</fieldset>
+						<fieldset class="form-group form-group-lg">
+							<div class="custom-control custom-radio mx-2">
+								<input type="radio" id="radioPueblo" name="puntuacion" class="custom-control-input" value="3">
+								<label class="custom-control-label" for="radioPueblo"><h4>Inglaterra</h4>
+								</label>
+							</div>
+							<div class="custom-control custom-radio mx-2">
+								<input type="radio" id="radioCiudad" name="puntuacion" class="custom-control-input" value="4">
+								<label class="custom-control-label" for="radioCiudad"><h4>Colombia</h4>
+								</label>
+							</div>
+						</fieldset>
+					</div>
+					<br>
+					<button type="submit" class="btn btn-primary btn-lg btn-block">Siguiente Pregunta</button>
+				</form>
+			</div>
+
+		<div>
+			<form th:action="@{/destruir}" method="post">
+				<button type="submit" class="btn btn-outline-danger">Reiniciar cuestionario</button>
+			</form>
+		</div>
+
+	</div>
+
+	<div>
+        <h2>Usuarios</h2>
+        <ul th:each="usuarios : ${sessionUsuarios}">
+            <li th:text="${usuarios}">nombre</li>
+        </ul>
+    </div>
+    <div>
+        <h2>Puntuaciones</h2>
+        <ul th:each="puntuacion : ${sessionPuntuacion}">
+            <li th:text="${puntuacion}">puntos</li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+ 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+<title>¿Qué tipo de empanada eres?</title>
+</head>
+<body>
+	<div class="jumbotron">
+	
+		<div class="d-flex justify-content-center">
+            <h1>¿Qu&eacute; signo zodiacal eres?</h1>
+        </div>
+		
+		<div class="d-flex justify-content-center">
+        	<img th:src="@{images/signo.jpg}" class="img-fluid" alt="Signo">
+        </div>
+		
+		<br>
+		<div class="form-group">
+            <form th:action="@{/respuesta1}" method="post">
+                <div class="d-flex justify-content-center">
+                    <fieldset class="form-group form-group-lg">
+                        <div class="form-group">
+                            <label for="exampleSelect1">Elige tu signo</label>
+                            <select class="form-control" id="exampleSelect1" name="puntuacion">
+                                <option value="1">Aries</option>
+                                <option value="2">Tauro</option>
+                                <option value="3">G&eacute;minis</option>
+                                <option value="4">C&aacute;ncer</option>
+                                <option value="1">Leo</option>
+                                <option value="2">Virgo</option>
+                                <option value="3">Libra</option>
+                                <option value="4">Escorpio</option>
+                                <option value="1">Sagitario</option>
+                                <option value="2">Capricornio</option>
+                                <option value="3">Acuario</option>
+                                <option value="4">Piscis</option>
+                            </select>
+                        </div>
+                    </fieldset>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Siguiente Pregunta</button>
+            </form>
+        </div>
+		
+		<div>
+			<form th:action="@{/destruir}" method="post">
+				<button type="submit" class="btn btn-outline-danger">Reiniciar cuestionario</button>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

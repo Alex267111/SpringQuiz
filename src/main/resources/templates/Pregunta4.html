@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+ 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+<title>¿Qué tipo de empanada eres?</title>
+</head>
+<body>
+
+	<div class="jumbotron">
+		<div class="d-flex justify-content-center">
+            <h1>¿Qu&eacute; estilo de m&uacute;sica es el que m&aacute;s escuchas?</h1>
+        </div>
+		
+		<div class="d-flex justify-content-center">
+        	<img th:src="@{images/musica.jpg}" class="img-fluid" alt="Musica">
+        </div>
+
+		<div class="form-group">
+        	<form th:action="@{/respuesta4}" method="post">
+        		<div class="d-flex justify-content-center">
+        			<div class="btn-group">
+	                    <button type="submit" class="btn btn-primary btn-lg mt-5" name="puntuacion" value="3">Hip Hop</button>
+	                    <button type="submit" class="btn btn-primary btn-lg mt-5" name="puntuacion" value="1">Rock</button>
+	                    <button type="submit" class="btn btn-primary btn-lg mt-5" name="puntuacion" value="2">Jazz</button>
+	                    <button type="submit" class="btn btn-primary btn-lg mt-5" name="puntuacion" value="4">M&uacute;sica cl&aacute;sica</button>
+	                    <button type="submit" class="btn btn-primary btn-lg mt-5" name="puntuacion" value="5">Otro</button>
+                    </div>
+        		</div>
+        	</form>
+        </div>
+
+		<div>
+			<form th:action="@{/destruir}" method="post">
+				<button type="submit" class="btn btn-outline-danger">Reiniciar cuestionario</button>
+			</form>
+		</div>
+
+	</div>
+     
+    <div>
+        <h2>Usuarios</h2>
+        <ul th:each="usuarios : ${sessionUsuarios}">
+            <li th:text="${usuarios}">nombre</li>
+        </ul>
+    </div>
+    <div>
+        <h2>Puntuaciones</h2>
+        <ul th:each="puntuacion : ${sessionPuntuacion}">
+            <li th:text="${puntuacion}">puntos</li>
+        </ul>
+    </div>
+</body>
+</html>

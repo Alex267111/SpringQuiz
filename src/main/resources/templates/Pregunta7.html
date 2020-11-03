@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+ 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+<title>¿Qué tipo de empanada eres?</title>
+</head>
+<body>
+
+	<div class="jumbotron">
+
+		<div class="d-flex justify-content-center">
+            <h1>¿Cu&aacute;l es tu sabor de comida favorito?</h1>
+        </div>
+	
+		<br>
+		<div class="d-flex justify-content-center">
+        	<img th:src="@{images/sabor.jpg}" class="img-fluid" alt="Sabor">
+        </div>
+
+		<br>
+		<div class="form-group">
+            <form th:action="@{/respuesta7}" method="post">
+                <div class="d-flex justify-content-center">
+                    <fieldset class="form-group form-group-lg">
+                        <div class="form-group">
+                            <label for="exampleSelect1">Elige tu sabor</label>
+                            <select class="form-control" id="exampleSelect1" name="puntuacion">
+                                <option value="1">Dulce</option>
+                                <option value="2">Salado</option>
+                                <option value="3">&Aacute;cido</option>
+                                <option value="4">Picante</option>
+                            </select>
+                        </div>
+                    </fieldset>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Siguiente Pregunta</button>
+            </form>
+        </div>
+
+		<div>
+			<form th:action="@{/destruir}" method="post">
+				<button type="submit" class="btn btn-outline-danger">Reiniciar cuestionario</button>
+			</form>
+		</div>
+
+	</div>
+	
+	<div>
+        <h2>Usuarios</h2>
+        <ul th:each="usuarios : ${sessionUsuarios}">
+            <li th:text="${usuarios}">nombre</li>
+        </ul>
+    </div>
+    <div>
+        <h2>Puntuaciones</h2>
+        <ul th:each="puntuacion : ${sessionPuntuacion}">
+            <li th:text="${puntuacion}">puntos</li>
+        </ul>
+    </div>
+</body>
+</html>

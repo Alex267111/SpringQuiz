@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <title>¿Qué tipo de empanada eres?</title>
+</head>
+<body>
+	<div class="jumbotron">
+		<div class="d-flex justify-content-center">
+			<h1>¿Qu&eacute; tipo de empanada eres?</h1>
+		</div>
+		
+		<h3>¿Te gustar&iacute;a saber qu&eacute; empanada ser&iacute;as? Con este cuestionario puedes averiguarlo</h3>
+		
+		<div class="d-flex justify-content-center">
+   			<img th:src="@{images/Empanadas.jpg}" class="img-fluid" alt="Empanadas">
+    	</div>
+    	
+    	<form th:action="@{/nombreUsuarios}" method="post">
+        	<p>Escribe tu nombre: <input type="text" class="form-control" id="inputDefault" name="nombre"></p>
+        	<button type="submit" class="btn btn-primary btn-lg btn-block">¡Empezar el cuestionario!</button>
+    	</form>
+    </div>
+      
+		<div>
+			<h2>Usuarios</h2>
+			<ul th:each="usuarios : ${sessionUsuarios}">
+				<li th:text="${usuarios}">nombre</li>
+			</ul>
+			
+		</div>
+</body>
+</html>
